@@ -41,7 +41,7 @@ public class FoodItem extends Item {
                 ", label='" + label + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", quantity=" + stockQuantity +
+                ", stockQuantity=" + stockQuantity +
                 ", restockingDate=" + restockingDate +
                 ", expirationDate=" + expirationDate +
                 '}';

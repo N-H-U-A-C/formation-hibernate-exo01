@@ -6,12 +6,12 @@ import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "modeitems")
-public class FashionItem extends Item{
+@Table(name = "fashionitems")
+public class FashionItem extends Item {
 
-    @Column(name = "modeitems_clothingcategory")
+    @Column(name = "fashionitem_clothingcategory")
     private ClothingCategory clothingCategory;
-    @Column(name = "modeitems_size")
+    @Column(name = "fashionitem_size")
     private int size;
 
     public FashionItem() {
@@ -52,7 +52,7 @@ public class FashionItem extends Item{
                 ", label='" + label + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", quantity=" + stockQuantity +
+                ", stockQuantity=" + stockQuantity +
                 ", restockingDate=" + restockingDate +
                 ", clothingCategory=" + clothingCategory +
                 ", size=" + size +

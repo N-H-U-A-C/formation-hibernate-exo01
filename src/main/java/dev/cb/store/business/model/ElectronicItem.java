@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Table(name = "electronicitems")
 public class ElectronicItem extends Item {
 
-    @Column(name = "electronicitems_batterycapacity")
+    @Column(name = "electronicitem_batterycapacity")
     private int batteryCapacity;
 
     public ElectronicItem() {
@@ -40,7 +40,7 @@ public class ElectronicItem extends Item {
                 ", label='" + label + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", quantity=" + stockQuantity +
+                ", stockQuantity=" + stockQuantity +
                 ", restockingDate=" + restockingDate +
                 ", batteryCapacity=" + batteryCapacity +
                 '}';

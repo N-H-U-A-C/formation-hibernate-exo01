@@ -9,13 +9,13 @@ public class SessionFactorySingleton {
     private static StandardServiceRegistry standardServiceRegistry;
     private static SessionFactory sessionFactory;
 
-    private SessionFactorySingleton(){
+    private SessionFactorySingleton() {
         standardServiceRegistry = new StandardServiceRegistryBuilder().configure().build();
         sessionFactory = new MetadataSources(standardServiceRegistry).buildMetadata().buildSessionFactory();
     }
 
-    public static synchronized SessionFactory getSessionFactory (){
-        if(sessionFactory == null){
+    public static synchronized SessionFactory getSessionFactory() {
+        if (sessionFactory == null) {
             new SessionFactorySingleton();
         }
         return sessionFactory;

@@ -15,7 +15,7 @@ public abstract class ItemRepository {
         sessionFactory = SessionFactorySingleton.getSessionFactory();
     }
 
-    public Item save(Item item){
+    public Item save(Item item) {
         try {
             session = sessionFactory.openSession();
             session.beginTransaction();
@@ -31,7 +31,7 @@ public abstract class ItemRepository {
         }
     }
 
-    public Optional<Item> findById(long id){
+    public Optional<Item> findById(long id) {
         try {
             session = sessionFactory.openSession();
             session.beginTransaction();

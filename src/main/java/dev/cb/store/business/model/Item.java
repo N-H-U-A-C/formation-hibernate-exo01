@@ -82,7 +82,7 @@ public abstract class Item {
                 ", label='" + label + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", quantity=" + stockQuantity +
+                ", stockQuantity=" + stockQuantity +
                 ", restockingDate=" + restockingDate +
                 '}';
     }
