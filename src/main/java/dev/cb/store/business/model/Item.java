@@ -18,24 +18,24 @@ public abstract class Item {
     protected String description;
     @Column(name = "item_price")
     protected double price;
-    @Column(name = "item_quantity")
-    protected int quantity;
+    @Column(name = "item_stockquantity")
+    protected int stockQuantity;
     @Column(name = "item_restockingDate")
     protected LocalDate restockingDate;
 
     public Item() {
     }
 
-    public Item(String label, String description, double price, int quantity, LocalDate restockingDate) {
+    public Item(String label, String description, double price, int stockQuantity, LocalDate restockingDate) {
         this.label = label;
         this.description = description;
         this.price = price;
-        this.quantity = quantity;
+        this.stockQuantity = stockQuantity;
         this.restockingDate = restockingDate;
     }
 
-    public Item(long id, String label, String description, double price, int quantity, LocalDate restockingDate) {
-        this(label, description, price, quantity, restockingDate);
+    public Item(long id, String label, String description, double price, int stockQuantity, LocalDate restockingDate) {
+        this(label, description, price, stockQuantity, restockingDate);
         this.id = id;
     }
 
@@ -59,12 +59,12 @@ public abstract class Item {
         this.price = price;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getStockQuantity() {
+        return stockQuantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setStockQuantity(int quantity) {
+        this.stockQuantity = quantity;
     }
 
     public LocalDate getRestockingDate() {
@@ -82,7 +82,7 @@ public abstract class Item {
                 ", label='" + label + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", quantity=" + quantity +
+                ", quantity=" + stockQuantity +
                 ", restockingDate=" + restockingDate +
                 '}';
     }

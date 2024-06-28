@@ -40,7 +40,7 @@ public class ElectronicItem extends Item {
                 ", label='" + label + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", quantity=" + quantity +
+                ", quantity=" + stockQuantity +
                 ", restockingDate=" + restockingDate +
                 ", batteryCapacity=" + batteryCapacity +
                 '}';

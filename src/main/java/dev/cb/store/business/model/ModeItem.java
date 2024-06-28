@@ -52,7 +52,7 @@ public class ModeItem extends Item{
                 ", label='" + label + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", quantity=" + quantity +
+                ", quantity=" + stockQuantity +
                 ", restockingDate=" + restockingDate +
                 ", clothingCategory=" + clothingCategory +
                 ", size=" + size +
