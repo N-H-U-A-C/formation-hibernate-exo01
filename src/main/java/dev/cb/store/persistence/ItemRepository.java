@@ -4,6 +4,9 @@ import dev.cb.store.business.model.Item;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import javax.persistence.TypedQuery;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public abstract class ItemRepository {
@@ -42,6 +45,24 @@ public abstract class ItemRepository {
             session.getTransaction().rollback();
             System.out.println(e.getMessage());
             return Optional.empty();
+        } finally {
+            session.close();
+        }
+    }
+
+    public List<Item> findAll() {
+
+        try {
+            session = sessionFactory.openSession();
+            session.beginTransaction();
+            TypedQuery<Item> query = session.createQuery("from Item", Item.class);
+            List<Item> items = query.getResultList();
+            session.getTransaction().commit();
+            return items;
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+            System.out.println(e.getMessage());
+            return new ArrayList<>();
         } finally {
             session.close();
         }

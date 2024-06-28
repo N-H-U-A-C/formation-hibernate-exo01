@@ -13,10 +13,11 @@ public class Main {
 
         FoodItemRepository foodItemRepository = new FoodItemRepository();
 
-        FoodItem foodItem = new FoodItem(16,"label", "description", 11.5, 5, LocalDate.now(), LocalDate.now());
+        FoodItem foodItem = new FoodItem("label", "description", 11.5, 5, LocalDate.now(), LocalDate.now());
 //        System.out.println(foodItemRepository.save(foodItem));
-        Optional<Item> optionalFoodItem = foodItemRepository.findById(foodItem.getId());
-        optionalFoodItem.ifPresentOrElse(System.out::println, () -> System.out.println("FoodItem not found"));
+//        Optional<Item> optionalFoodItem = foodItemRepository.findById(foodItem.getId());
+//        optionalFoodItem.ifPresentOrElse(System.out::println, () -> System.out.println("FoodItem not found"));
+        System.out.println(foodItemRepository.findAll());
 
         //TODO check dépendance hibernate
     }
