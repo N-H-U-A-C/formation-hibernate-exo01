@@ -1,10 +1,17 @@
 package dev.cb.store.business.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "modeitems")
 public class ModeItem extends Item{
 
+    @Column(name = "modeitems_clothingcategory")
     private ClothingCategory clothingCategory;
+    @Column(name = "modeitems_size")
     private int size;
 
     public ModeItem() {
@@ -36,5 +43,19 @@ public class ModeItem extends Item{
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    @Override
+    public String toString() {
+        return "ModeItem{" +
+                "id=" + id +
+                ", label='" + label + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", restockingDate=" + restockingDate +
+                ", clothingCategory=" + clothingCategory +
+                ", size=" + size +
+                '}';
     }
 }

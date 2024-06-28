@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Table(name = "fooditems")
 public class FoodItem extends Item {
 
-    @Column(name = "expirationDate")
+    @Column(name = "fooditem_expirationdate")
     private LocalDate expirationDate;
 
     public FoodItem() {
@@ -32,5 +32,18 @@ public class FoodItem extends Item {
 
     public void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
+    }
+
+    @Override
+    public String toString() {
+        return "FoodItem{" +
+                "id=" + id +
+                ", label='" + label + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", restockingDate=" + restockingDate +
+                ", expirationDate=" + expirationDate +
+                '}';
     }
 }

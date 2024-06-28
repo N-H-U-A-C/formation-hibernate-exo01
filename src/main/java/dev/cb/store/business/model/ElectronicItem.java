@@ -1,9 +1,15 @@
 package dev.cb.store.business.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "electronicitems")
 public class ElectronicItem extends Item {
 
+    @Column(name = "electronicitems_batterycapacity")
     private int batteryCapacity;
 
     public ElectronicItem() {
@@ -25,5 +31,18 @@ public class ElectronicItem extends Item {
 
     public void setBatteryCapacity(int batteryCapacity) {
         this.batteryCapacity = batteryCapacity;
+    }
+
+    @Override
+    public String toString() {
+        return "ElectronicItem{" +
+                "id=" + id +
+                ", label='" + label + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", restockingDate=" + restockingDate +
+                ", batteryCapacity=" + batteryCapacity +
+                '}';
     }
 }

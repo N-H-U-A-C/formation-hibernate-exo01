@@ -5,10 +5,11 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "items")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Item {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "item_id")
     protected long id;
     @Column(name = "item_label")
@@ -72,5 +73,17 @@ public abstract class Item {
 
     public void setRestockingDate(LocalDate restockingDate) {
         this.restockingDate = restockingDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", label='" + label + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", restockingDate=" + restockingDate +
+                '}';
     }
 }
