@@ -7,23 +7,23 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "modeitems")
-public class ModeItem extends Item{
+public class FashionItem extends Item{
 
     @Column(name = "modeitems_clothingcategory")
     private ClothingCategory clothingCategory;
     @Column(name = "modeitems_size")
     private int size;
 
-    public ModeItem() {
+    public FashionItem() {
     }
 
-    public ModeItem(String label, String description, double price, int quantity, LocalDate restockingDate, ClothingCategory clothingCategory, int size) {
+    public FashionItem(String label, String description, double price, int quantity, LocalDate restockingDate, ClothingCategory clothingCategory, int size) {
         super(label, description, price, quantity, restockingDate);
         this.clothingCategory = clothingCategory;
         this.size = size;
     }
 
-    public ModeItem(long id, String label, String description, double price, int quantity, LocalDate restockingDate, ClothingCategory clothingCategory, int size) {
+    public FashionItem(long id, String label, String description, double price, int quantity, LocalDate restockingDate, ClothingCategory clothingCategory, int size) {
         super(id, label, description, price, quantity, restockingDate);
         this.clothingCategory = clothingCategory;
         this.size = size;

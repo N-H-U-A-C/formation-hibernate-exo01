@@ -7,7 +7,7 @@
         <mapping class="dev.cb.store.business.model.Item"/>
         <mapping class="dev.cb.store.business.model.FoodItem"/>
         <mapping class="dev.cb.store.business.model.ElectronicItem"/>
-        <mapping class="dev.cb.store.business.model.ModeItem"/>
+        <mapping class="dev.cb.store.business.model.FashionItem"/>
 
     </session-factory>
 </hibernate-configuration>
