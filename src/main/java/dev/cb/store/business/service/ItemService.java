@@ -18,11 +18,11 @@ public abstract class ItemService {
         itemRepository.save(item);
     }
 
-    public Optional<Item> findById(Long id) {
+    public Optional<Item> getById(Long id) {
         return itemRepository.findById(id);
     }
 
-    public List<Item> findAll() {
+    public List<Item> getAll() {
         return itemRepository.findAll();
     }
 

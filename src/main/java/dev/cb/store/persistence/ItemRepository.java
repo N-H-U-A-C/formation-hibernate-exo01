@@ -14,6 +14,7 @@ public abstract class ItemRepository {
         sessionFactory = SessionFactorySingleton.getSessionFactory();
     }
 
+    // basic CRUD
     public void save(Item item) {
         sessionFactory.inTransaction(session -> session.persist(item));
     }

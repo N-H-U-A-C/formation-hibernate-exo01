@@ -13,6 +13,7 @@ public abstract class Item implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "itemId")
     protected Long id;
     protected String label;
     protected String description;
