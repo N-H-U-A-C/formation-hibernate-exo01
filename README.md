@@ -16,7 +16,7 @@ L'application doit permettre aux employés de suivre les stocks des articles, de
  
 2. **Gestion des ventes :**
    - Permettre d'enregistrer des ventes.
-   - Chaque article doit avoir un état (en cours, finalisée, annulée)
+   - Chaque vente doit avoir un état (en cours, finalisée, annulée).
    - Permettre de suivre l'état des ventes.
  
 3. **Gestion des clients :**
