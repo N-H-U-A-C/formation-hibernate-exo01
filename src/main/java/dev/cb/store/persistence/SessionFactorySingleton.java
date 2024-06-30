@@ -1,9 +1,6 @@
 package dev.cb.store.persistence;
 
-import dev.cb.store.business.model.ElectronicItem;
-import dev.cb.store.business.model.FashionItem;
-import dev.cb.store.business.model.FoodItem;
-import dev.cb.store.business.model.Item;
+import dev.cb.store.business.model.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
@@ -20,7 +17,7 @@ public class SessionFactorySingleton {
         standardServiceRegistry = new StandardServiceRegistryBuilder()
                 .build();
         sessionFactory = new MetadataSources(standardServiceRegistry)
-                .addAnnotatedClasses(Item.class, ElectronicItem.class, FashionItem.class, FoodItem.class)
+                .addAnnotatedClasses(Item.class, ElectronicItem.class, FashionItem.class, FoodItem.class, Sale.class, SaleLine.class)
                 .buildMetadata()
                 .buildSessionFactory();
     }
