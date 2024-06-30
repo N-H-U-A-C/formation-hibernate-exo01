@@ -9,10 +9,10 @@ L'application doit permettre aux employés de suivre les stocks des articles, de
    - Permettre d'ajouter, de modifier, de supprimer, de consulter des articles.
    - Chaque article doit avoir un identifiant unique, un nom, une description, un prix, une quantité en stock et une date de restockage.
    - Permettre de restocker des articles (mettre à jour la quantité en stock et actualiser la date de restockage).
-   - Les articles peuvent être de différentes natures 
-     - Articles de nourriture avec une date de péremption
-     - Articles électroniques avec une durée de batterie
-     - Articles de mode avec une catégorie (homme, femme, enfant) et une taille
+   - Les articles peuvent être de différentes natures :
+     - Articles de nourriture avec une date de péremption.
+     - Articles électroniques avec une durée de batterie.
+     - Articles de mode avec une catégorie (homme, femme, enfant) et une taille.
  
 2. **Gestion des ventes :**
    - Permettre d'enregistrer des ventes.
