@@ -1,23 +1,27 @@
-### Sujet : Système de Gestion d'Inventaire pour un Magasin de Vêtements
+## Hibernate Exo 01 (Magasin)
  
 #### Contexte :
-Un magasin de vêtements souhaite développer une application pour gérer son inventaire, ses ventes et ses clients. L'application doit permettre aux employés de suivre les stocks de vêtements, de gérer les ventes et de tenir à jour les informations des clients.
+Un magasin souhaite développer une application pour ses clients, ses ventes et son inventaire. 
+L'application doit permettre aux employés de suivre les stocks des articles, de gérer les ventes et de tenir à jour les informations des clients.
  
 #### Fonctionnalités attendues :
 1. **Gestion de l'inventaire :**
-   - Permettre d'ajouter, modifier, supprimer, consulter et restocker les articles de l'inventaire.
-   - Chaque article doit inclure un identifiant unique, une description, un prix, et la quantité en stock, la date de restock.
-   - les article pourrons etre different ( article nourriture auront une date de péremption / article electronique auront une durée de batterie / article de mode auront une catégorie (homme, femme, enfant), une taille) (heritage)
+   - Permettre d'ajouter, de modifier, de supprimer, de consulter des articles.
+   - Chaque article doit avoir un identifiant unique, un nom, une description, un prix, une quantité en stock et une date de restockage.
+   - Permettre de restocker des articles (mettre à jour la quantité en stock et actualiser la date de restockage).
+   - Les articles peuvent être de différentes natures 
+     - Articles de nourriture avec une date de péremption
+     - Articles électroniques avec une durée de batterie
+     - Articles de mode avec une catégorie (homme, femme, enfant) et une taille
  
 2. **Gestion des ventes :**
-   - Enregistrer les ventes réalisées en magasin.
-   - Suivre l'état des ventes (en cours, finalisée, annulée).
+   - Permettre d'enregistrer des ventes.
+   - Chaque article doit avoir un état (en cours, finalisée, annulée)
+   - Permettre de suivre l'état des ventes.
  
 3. **Gestion des clients :**
-   - Créer, modifier, supprimer et consulter les informations des clients.
-   - Chaque client doit avoir un identifiant unique, un nom, une adresse e-mail et un historique des achats.
+   - Permettre d'ajouter, de modifier, de supprimer, de consulter des clients.
+   - Chaque client doit avoir un identifiant unique, un nom, une adresse email et un historique des achats.
  
 4. **Rapports et analyses :**
-   - Fournir les ventes par produit, par période et par client.
-
- 
+   - Fournir les ventes par article, par client et par période.
