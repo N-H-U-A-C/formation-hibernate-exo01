@@ -1,15 +1,14 @@
 package dev.cb.store.business.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "fooditems")
+@DiscriminatorValue("FoodItem")
 public class FoodItem extends Item {
 
-    @Column(name = "fooditem_expirationdate")
     private LocalDate expirationDate;
 
     public FoodItem() {

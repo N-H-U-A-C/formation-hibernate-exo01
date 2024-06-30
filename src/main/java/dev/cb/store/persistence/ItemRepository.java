@@ -3,6 +3,7 @@ package dev.cb.store.persistence;
 import dev.cb.store.business.model.Item;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,7 +11,6 @@ import java.util.Optional;
 public abstract class ItemRepository {
 
     private SessionFactory sessionFactory;
-    private Session session;
 
     public ItemRepository() {
         sessionFactory = SessionFactorySingleton.getSessionFactory();
@@ -28,5 +28,17 @@ public abstract class ItemRepository {
         return sessionFactory.fromTransaction(session ->
                 session.createSelectionQuery("from Item", Item.class)
                         .getResultList());
+    }
+
+    public void update(Item item) {
+        Optional<Item> optionalItem = this.findById(item.getId());
+        optionalItem.ifPresent(fetchedItem -> {
+            fetchedItem.update(item);
+            sessionFactory.inTransaction(session -> session.merge(fetchedItem));
+        });
+    }
+
+    public void delete(Item item) {
+        sessionFactory.inTransaction(session -> session.delete(item));
     }
 }

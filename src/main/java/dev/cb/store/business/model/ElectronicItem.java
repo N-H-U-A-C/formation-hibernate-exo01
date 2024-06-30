@@ -1,15 +1,14 @@
 package dev.cb.store.business.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "electronicitems")
+@DiscriminatorValue("ElectronicItem")
 public class ElectronicItem extends Item {
 
-    @Column(name = "electronicitem_batterycapacity")
     private int batteryCapacity;
 
     public ElectronicItem() {

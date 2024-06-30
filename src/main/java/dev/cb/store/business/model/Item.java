@@ -1,26 +1,23 @@
 package dev.cb.store.business.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
-@Table(name = "items")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Item {
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "itemType")
+public abstract class Item implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "item_id")
-    protected long id;
-    @Column(name = "item_label")
+    protected Long id;
     protected String label;
-    @Column(name = "item_description")
     protected String description;
-    @Column(name = "item_price")
     protected double price;
-    @Column(name = "item_stockquantity")
     protected int stockQuantity;
-    @Column(name = "item_restockingDate")
     protected LocalDate restockingDate;
 
     public Item() {
@@ -34,13 +31,29 @@ public abstract class Item {
         this.restockingDate = restockingDate;
     }
 
-    public Item(long id, String label, String description, double price, int stockQuantity, LocalDate restockingDate) {
+    public Item(Long id, String label, String description, double price, int stockQuantity, LocalDate restockingDate) {
         this(label, description, price, stockQuantity, restockingDate);
         this.id = id;
     }
 
-    public long getId() {
+    public void update(Item item) {
+        this.setLabel(item.getLabel());
+        this.setDescription(item.getDescription());
+        this.setPrice(item.getPrice());
+        this.setStockQuantity(item.getStockQuantity());
+        this.setRestockingDate(item.getRestockingDate());
+    }
+
+    public Long getId() {
         return id;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public String getDescription() {
@@ -73,6 +86,18 @@ public abstract class Item {
 
     public void setRestockingDate(LocalDate restockingDate) {
         this.restockingDate = restockingDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Item item)) return false;
+        return Objects.equals(getId(), item.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId());
     }
 
     @Override
