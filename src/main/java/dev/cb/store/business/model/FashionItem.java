@@ -10,18 +10,18 @@ import java.time.LocalDate;
 public class FashionItem extends Item {
 
     private ClothingCategory clothingCategory;
-    private int size;
+    private String size;
 
     public FashionItem() {
     }
 
-    public FashionItem(String label, String description, double price, int quantity, LocalDate restockingDate, ClothingCategory clothingCategory, int size) {
+    public FashionItem(String label, String description, double price, int quantity, LocalDate restockingDate, ClothingCategory clothingCategory, String size) {
         super(label, description, price, quantity, restockingDate);
         this.clothingCategory = clothingCategory;
         this.size = size;
     }
 
-    public FashionItem(long id, String label, String description, double price, int quantity, LocalDate restockingDate, ClothingCategory clothingCategory, int size) {
+    public FashionItem(long id, String label, String description, double price, int quantity, LocalDate restockingDate, ClothingCategory clothingCategory, String size) {
         super(id, label, description, price, quantity, restockingDate);
         this.clothingCategory = clothingCategory;
         this.size = size;
@@ -35,11 +35,11 @@ public class FashionItem extends Item {
         this.clothingCategory = clothingCategory;
     }
 
-    public int getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize(String size) {
         this.size = size;
     }
 
