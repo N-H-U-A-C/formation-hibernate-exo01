@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public abstract class ItemRepository {
 
-    private SessionFactory sessionFactory;
+    protected SessionFactory sessionFactory;
 
     public ItemRepository() {
         sessionFactory = SessionFactorySingleton.getSessionFactory();

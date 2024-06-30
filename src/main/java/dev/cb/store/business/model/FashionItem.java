@@ -1,12 +1,11 @@
 package dev.cb.store.business.model;
 
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 import java.time.LocalDate;
 
 @Entity
-@DiscriminatorValue("FashionItem")
+//@DiscriminatorValue("FashionItem")
 public class FashionItem extends Item {
 
     private ClothingCategory clothingCategory;
@@ -45,7 +44,7 @@ public class FashionItem extends Item {
 
     @Override
     public String toString() {
-        return "ModeItem{" +
+        return "FashionItem{" +
                 "id=" + id +
                 ", label='" + label + '\'' +
                 ", description='" + description + '\'' +

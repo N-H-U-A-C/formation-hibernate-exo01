@@ -1,12 +1,11 @@
 package dev.cb.store.business.model;
 
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 import java.time.LocalDate;
 
 @Entity
-@DiscriminatorValue("FoodItem")
+//@DiscriminatorValue("FoodItem")
 public class FoodItem extends Item {
 
     private LocalDate expirationDate;

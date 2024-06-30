@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "itemType")
+//@DiscriminatorColumn(name = "itemType")
 public abstract class Item implements Serializable {
 
     @Id

@@ -1,12 +1,11 @@
 package dev.cb.store.business.model;
 
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 import java.time.LocalDate;
 
 @Entity
-@DiscriminatorValue("ElectronicItem")
+//@DiscriminatorValue("ElectronicItem")
 public class ElectronicItem extends Item {
 
     private int batteryCapacity;
