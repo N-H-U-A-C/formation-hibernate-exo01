@@ -1,17 +1,15 @@
 package dev.cb.store.business.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "fashionitems")
+@DiscriminatorValue("FashionItem")
 public class FashionItem extends Item {
 
-    @Column(name = "fashionitem_clothingcategory")
     private ClothingCategory clothingCategory;
-    @Column(name = "fashionitem_size")
     private int size;
 
     public FashionItem() {

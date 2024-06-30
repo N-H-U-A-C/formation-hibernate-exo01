@@ -36,6 +36,11 @@ public abstract class Item implements Serializable {
         this.id = id;
     }
 
+    public void restock(Item item, int quantity) {
+        item.setStockQuantity(quantity);
+        item.setRestockingDate(LocalDate.now());
+    }
+
     public void update(Item item) {
         this.setLabel(item.getLabel());
         this.setDescription(item.getDescription());

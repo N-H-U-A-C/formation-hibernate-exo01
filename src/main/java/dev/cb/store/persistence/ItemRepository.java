@@ -20,7 +20,7 @@ public abstract class ItemRepository {
         sessionFactory.inTransaction(session -> session.persist(item));
     }
 
-    public Optional<Item> findById(long id) {
+    public Optional<Item> findById(Long id) {
         return sessionFactory.fromTransaction(session -> Optional.ofNullable(session.find(Item.class, id)));
     }
 
@@ -31,12 +31,16 @@ public abstract class ItemRepository {
     }
 
     public void update(Item item) {
-        Optional<Item> optionalItem = this.findById(item.getId());
-        optionalItem.ifPresent(fetchedItem -> {
-            fetchedItem.update(item);
-            sessionFactory.inTransaction(session -> session.merge(fetchedItem));
-        });
+            sessionFactory.inTransaction(session -> session.merge(item));
     }
+
+//    public void update(Item item) {
+//        Optional<Item> optionalItem = this.findById(item.getId());
+//        optionalItem.ifPresent(fetchedItem -> {
+//            fetchedItem.update(item);
+//            sessionFactory.inTransaction(session -> session.merge(fetchedItem));
+//        });
+//    }
 
     public void delete(Item item) {
         sessionFactory.inTransaction(session -> session.delete(item));
