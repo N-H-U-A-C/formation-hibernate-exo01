@@ -17,7 +17,7 @@ public class SessionFactorySingleton {
         standardServiceRegistry = new StandardServiceRegistryBuilder()
                 .build();
         sessionFactory = new MetadataSources(standardServiceRegistry)
-                .addAnnotatedClasses(Item.class, ElectronicItem.class, FashionItem.class, FoodItem.class, Sale.class, SaleLine.class)
+                .addAnnotatedClasses(Item.class, ElectronicItem.class, FashionItem.class, FoodItem.class, Sale.class, SaleLine.class, Client.class)
                 .buildMetadata()
                 .buildSessionFactory();
     }
