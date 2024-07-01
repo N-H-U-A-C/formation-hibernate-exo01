@@ -18,9 +18,10 @@ public class Sale implements Serializable {
     private Long id;
     private LocalDateTime date;
     // TODO get right formula (sum saleline price)
-    @Formula("(SELECT sum(saleline.quantity * item.price) FROM sale\n" +
-            " LEFT JOIN saleline ON sale.saleid = saleline.saleid\n" +
-            " LEFT JOIN item ON saleline.itemid = item.itemid)")
+//    @Formula("(SELECT sum(saleline.quantity * item.price) FROM sale\n" +
+//            " LEFT JOIN saleline ON sale.saleid = saleline.saleid\n" +
+//            " LEFT JOIN item ON saleline.itemid = item.itemid)")
+    @Transient
     private double price;
     private Status status;
 
