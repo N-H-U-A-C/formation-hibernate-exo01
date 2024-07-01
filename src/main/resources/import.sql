@@ -1,3 +1,8 @@
+
+-- Client
+insert into client (clientid, firstname, lastName, email) values (nextval('client_seq'), 'Paco', 'Rabanne', 'designerdudimanche@gmail.com');
+insert into client (clientid, firstname, lastName, email) values (nextval('client_seq'), 'Toto', 'Tata', 'toto.tata@gmail.com');
+
 -- ElectronicItem
 with insert1 as (insert into item (itemid, label, description, price, stockquantity, restockingdate) values (nextval('item_seq'), 'PC portable', 'Un PC portable', 749.99, 5, '2020-06-06') returning itemid) insert into electronicitem (itemid, batterycapacity) select itemid, 3600 from insert1;
 with insert1 as (insert into item (itemid, label, description, price, stockquantity, restockingdate) values (nextval('item_seq'), 'Lampe torche', 'Une lampe torche', 13.99, 10, '2020-06-06') returning itemid) insert into electronicitem (itemid, batterycapacity) select itemid, 3600 from insert1;
@@ -17,12 +22,12 @@ with insert1 as (insert into item (itemid, label, description, price, stockquant
 with insert1 as (insert into item (itemid, label, description, price, stockquantity, restockingdate) values (nextval('item_seq'), 'Kebab surgelé', 'Un kebab surgelé', 11, 6, '2020-06-06') returning itemid) insert into fooditem (itemid, expirationdate) select itemid, '2025-10-25' from insert1;
 
 -- Sale
-insert into sale (saleid, date, status) values (nextval('sale_seq'), '2020-05-02 15:59:59-07', 0);
-insert into sale (saleid, date, status) values (nextval('sale_seq'), '2020-07-02 15:59:59-07', 1);
-insert into sale (saleid, date, status) values (nextval('sale_seq'), '2023-02-02 15:59:59-07', 2);
-insert into sale (saleid, date, status) values (nextval('sale_seq'), '2021-02-02 15:59:59-07', 0);
-insert into sale (saleid, date, status) values (nextval('sale_seq'), '2021-02-02 15:59:59-07', 0);
-insert into sale (saleid, date, status) values (nextval('sale_seq'), '2021-02-02 15:59:59-07', 0);
+insert into sale (saleid, date, status, clientid) values (nextval('sale_seq'), '2020-05-02 15:59:59-07', 0, 1);
+insert into sale (saleid, date, status, clientid) values (nextval('sale_seq'), '2020-07-02 15:59:59-07', 1, 1);
+insert into sale (saleid, date, status, clientid) values (nextval('sale_seq'), '2023-02-02 15:59:59-07', 2, 1);
+insert into sale (saleid, date, status, clientid) values (nextval('sale_seq'), '2021-02-02 15:59:59-07', 0, 51);
+insert into sale (saleid, date, status, clientid) values (nextval('sale_seq'), '2021-02-02 15:59:59-07', 0, 51);
+insert into sale (saleid, date, status, clientid) values (nextval('sale_seq'), '2021-02-02 15:59:59-07', 0, 51);
 
 -- SaleLine
 insert into saleline (salelineid, quantity, itemid, saleid) values (nextval('saleline_seq'), 1, 1, 1);
