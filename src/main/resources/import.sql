@@ -21,7 +21,19 @@ insert into sale (saleid, date, status) values (nextval('sale_seq'), '2020-05-02
 insert into sale (saleid, date, status) values (nextval('sale_seq'), '2020-07-02 15:59:59-07', 1);
 insert into sale (saleid, date, status) values (nextval('sale_seq'), '2023-02-02 15:59:59-07', 2);
 insert into sale (saleid, date, status) values (nextval('sale_seq'), '2021-02-02 15:59:59-07', 0);
+insert into sale (saleid, date, status) values (nextval('sale_seq'), '2021-02-02 15:59:59-07', 0);
+insert into sale (saleid, date, status) values (nextval('sale_seq'), '2021-02-02 15:59:59-07', 0);
 
 -- SaleLine
 insert into saleline (salelineid, quantity, itemid, saleid) values (nextval('saleline_seq'), 1, 1, 1);
 insert into saleLine (salelineid, quantity, itemid, saleid) values (nextval('saleline_seq'), 2, 51, 1);
+insert into saleline (salelineid, quantity, itemid, saleid) values (nextval('saleline_seq'), 4, 101, 51);
+insert into saleline (salelineid, quantity, itemid, saleid) values (nextval('saleline_seq'), 4, 151, 51);
+insert into saleline (salelineid, quantity, itemid, saleid) values (nextval('saleline_seq'), 1, 201, 101);
+insert into saleline (salelineid, quantity, itemid, saleid) values (nextval('saleline_seq'), 1, 251, 101);
+insert into saleline (salelineid, quantity, itemid, saleid) values (nextval('saleline_seq'), 1, 301, 151);
+insert into saleline (salelineid, quantity, itemid, saleid) values (nextval('saleline_seq'), 1, 351, 151);
+insert into saleline (salelineid, quantity, itemid, saleid) values (nextval('saleline_seq'), 1, 401, 201);
+insert into saleline (salelineid, quantity, itemid, saleid) values (nextval('saleline_seq'), 1, 451, 201);
+insert into saleline (salelineid, quantity, itemid, saleid) values (nextval('saleline_seq'), 1, 501, 251);
+insert into saleline (salelineid, quantity, itemid, saleid) values (nextval('saleline_seq'), 1, 551, 251);
