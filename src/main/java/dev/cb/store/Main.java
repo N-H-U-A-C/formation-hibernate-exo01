@@ -3,9 +3,12 @@ package dev.cb.store;
 import dev.cb.store.business.model.*;
 import dev.cb.store.business.service.*;
 import dev.cb.store.persistence.*;
+import dev.cb.store.presentation.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 public class Main {
@@ -28,14 +31,26 @@ public class Main {
         ClientRepository clientRepository = new ClientRepository();
         ClientService clientService = new ClientService(clientRepository);
 
+        Map<Integer, Menu> menus = new HashMap<>();
+        Menu mainMenu = new MainMenu();
+        menus.put(0, mainMenu);
+        Menu clientMenu = new ClientMenu(clientService);
+        menus.put(1, clientMenu);
+        Menu saleMenu = new SaleMenu(saleService);
+        menus.put(2, saleMenu);
+
+        Ihm.menus = menus;
+        Ihm.actualMenu = menus.get(0);
+        Ihm.run();
+
         Client client1 = new Client("test", "test", "test@gmail.com");
         Client client2 = new Client(52L, "update test", "test", "test@gmail.com");
-        clientService.save(client1);
-        Optional<Client> optionalClient = clientRepository.findById(Long.valueOf(1L));
-        optionalClient.ifPresentOrElse(System.out::println, () -> System.out.println("Client not found"));
-        clientService.update(client2);
-        clientService.delete(client2);
-        clientService.getAll().forEach(System.out::println);
+//        clientService.save(client1);
+//        Optional<Client> optionalClient = clientRepository.findById(Long.valueOf(1L));
+//        optionalClient.ifPresentOrElse(System.out::println, () -> System.out.println("Client not found"));
+//        clientService.update(client2);
+//        clientService.delete(client2);
+//        clientService.getAll().forEach(System.out::println);
 
 //        Sale sale1 = new Sale(LocalDateTime.now(), 55.5, Status.ONGOING);
 //        Sale sale2 = new Sale(1L, LocalDateTime.now(), 100.5, Status.ONGOING);

@@ -1,7 +1,6 @@
 package dev.cb.store.business.model;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Formula;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
