@@ -38,6 +38,7 @@ public class Main {
         menus.put(1, clientMenu);
         Menu saleMenu = new SaleMenu(saleService);
         menus.put(2, saleMenu);
+        // TODO create itemService instead of fooService
 
         Ihm.menus = menus;
         Ihm.actualMenu = menus.get(0);

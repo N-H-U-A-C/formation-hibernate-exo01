@@ -67,26 +67,38 @@ public class ClientMenu extends Menu {
         this.clientService.save(this.inputNewClient());
     }
 
-    protected Long inputId() {
+    private Long inputId() {
         return Long.valueOf(Ihm.readInput(this.entityName.toLowerCase(), "id"));
     }
 
     private Client inputNewClient() {
         Client client = new Client();
-        client.setFirstName(Ihm.readInput(this.entityName.toLowerCase(), "first name"));
-        client.setLastName(Ihm.readInput(this.entityName.toLowerCase(), "last name"));
-        client.setEmail(Ihm.readInput(this.entityName.toLowerCase(), "email"));
+        inputFirstName(client);
+        inputLastName(client);
+        inputEmail(client);
         return client;
     }
 
     private Client inputUpdatedClient(Client client) {
         System.out.println("= Current client =");
         System.out.println("\nCurrent first name: " + client.getFirstName());
-        client.setFirstName(Ihm.readInput(this.entityName.toLowerCase(), "first name"));
+        inputFirstName(client);
         System.out.println("\nCurrent last name: " + client.getLastName());
-        client.setLastName(Ihm.readInput(this.entityName.toLowerCase(), "last name"));
+        inputLastName(client);
         System.out.println("\nCurrent email: " + client.getEmail());
-        client.setEmail(Ihm.readInput(this.entityName.toLowerCase(), "email"));
+        inputEmail(client);
         return client;
+    }
+
+    private void inputFirstName(Client client) {
+        client.setFirstName(Ihm.readInput(this.entityName.toLowerCase(), "first name"));
+    }
+
+    private void inputLastName(Client client) {
+        client.setLastName(Ihm.readInput(this.entityName.toLowerCase(), "last name"));
+    }
+
+    private void inputEmail(Client client) {
+        client.setEmail(Ihm.readInput(this.entityName.toLowerCase(), "email"));
     }
 }

@@ -75,16 +75,12 @@ public class SaleMenu extends Menu {
         Sale sale = new Sale();
         inputDate(sale);
         inputStatus(sale);
-        String yesNo = Ihm.readInput("Do you want to add an item to the sale? (y/n)");
-        if (yesNo.equalsIgnoreCase("y")) {
-
+        while (Ihm.readInput("Do you want to add an item to the sale? (y/n)").equalsIgnoreCase("y")) {
+            inputItem(sale);
         }
-/*
-         demander si nouveau item : oui -> continuer, non -> fin
-         demander id item, quantité item
-*/
         return sale;
     }
+
 
     private Sale inputUpdatedSale(Sale sale) {
         System.out.println("= Current sale =");
@@ -109,16 +105,22 @@ public class SaleMenu extends Menu {
     private void inputStatus(Sale sale) {
         String statusCase = Ihm.readInput(this.entityName.toLowerCase(), """
                 status
-                1. ongoing
-                2. finalized
-                3. canceled
+                1. Ongoing
+                2. Finalized
+                3. Canceled
                 """);
         sale.setStatus(
                 switch (statusCase) {
-                    default -> Status.ONGOING;
                     case "2" -> Status.FINALIZED;
                     case "3" -> Status.CANCELED;
+                    default -> Status.ONGOING;
                 }
         );
+    }
+
+    private void inputItem(Sale sale) {
+/*
+         demander id item, quantité item
+*/
     }
 }
