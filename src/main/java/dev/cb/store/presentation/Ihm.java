@@ -20,7 +20,11 @@ public class Ihm {
         do {
             actualMenu.displayMenu();
             userInput = readInput("choice");
-            actualMenu.getActions().get(Integer.valueOf(userInput)).run();
+            try {
+                actualMenu.getActions().get(Integer.valueOf(userInput)).run();
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid choice");
+            }
         } while (!hasQuit);
     }
 
