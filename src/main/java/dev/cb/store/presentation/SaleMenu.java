@@ -88,6 +88,13 @@ public class SaleMenu extends Menu {
         inputDate(sale);
         System.out.println("\nCurrent status: " + sale.getStatus());
         inputStatus(sale);
+        for (int i = 0; i < sale.getSaleLines().size(); i++) {
+            System.out.println("\nCurrent item: " + sale.getSaleLines().get(i));
+            inputItem(sale);
+        }
+        while (Ihm.readInput("Do you want to add an item to the sale? (y/n)").equalsIgnoreCase("y")) {
+            inputItem(sale);
+        }
         return sale;
     }
 
@@ -97,7 +104,7 @@ public class SaleMenu extends Menu {
 
     private void inputDate(Sale sale) {
         LocalDate date = LocalDate.parse(Ihm.readInput(this.entityName.toLowerCase(), "date"));
-        LocalTime time = LocalTime.parse(Ihm.readInput(this.entityName.toLowerCase(), "heure"));
+        LocalTime time = LocalTime.parse(Ihm.readInput(this.entityName.toLowerCase(), "time"));
         LocalDateTime dateTime = LocalDateTime.of(date, time);
         sale.setDate(dateTime);
     }
@@ -120,6 +127,7 @@ public class SaleMenu extends Menu {
 
     private void inputItem(Sale sale) {
 /*
+        // TODO implement
          demander id item, quantité item
 */
     }

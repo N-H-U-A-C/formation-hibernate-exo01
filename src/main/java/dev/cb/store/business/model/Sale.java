@@ -2,11 +2,10 @@ package dev.cb.store.business.model;
 
 import jakarta.persistence.*;
 
+import javax.sound.sampled.Line;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class Sale implements Serializable {
@@ -27,7 +26,7 @@ public class Sale implements Serializable {
     // TODO change fetch eager to fetch lazy + use join fetch or EntityGraph
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "saleId")
-    private Set<SaleLine> saleLines = new HashSet<>();
+    private List<SaleLine> saleLines = new ArrayList<>();
 
     public Sale() {
     }
@@ -77,11 +76,11 @@ public class Sale implements Serializable {
         this.status = status;
     }
 
-    public Set<SaleLine> getSaleLines() {
+    public List<SaleLine> getSaleLines() {
         return saleLines;
     }
 
-    public void setSaleLines(Set<SaleLine> saleLines) {
+    public void setSaleLines(List<SaleLine> saleLines) {
         this.saleLines = saleLines;
     }
 

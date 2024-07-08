@@ -16,6 +16,7 @@ public class SaleLine {
     @Formula("sl1_0.quantity * i1_0.price")
     private double price;
 
+    // TODO change OneToOne to OneToMany
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "itemId")
     private Item item;
