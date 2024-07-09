@@ -40,7 +40,7 @@ public class SaleMenu extends Menu {
     }
 
     private void delete() {
-        Optional<Sale> optionalSale = saleService.getById(this.inputSaleId());
+        Optional<Sale> optionalSale = saleService.getById(this.inputId());
         optionalSale.ifPresentOrElse(
                 sale -> this.saleService.delete(sale),
                 () -> System.out.println(this.entityName + " not found")
@@ -48,7 +48,7 @@ public class SaleMenu extends Menu {
     }
 
     private void update() {
-        Optional<Sale> optionalSale = saleService.getById(this.inputSaleId());
+        Optional<Sale> optionalSale = saleService.getById(this.inputId());
         optionalSale.ifPresentOrElse(
                 sale -> this.saleService.update(this.inputUpdatedSale(sale)),
                 () -> System.out.println(this.entityName + " not found")
@@ -60,7 +60,7 @@ public class SaleMenu extends Menu {
     }
 
     private void read() {
-        Optional<Sale> optionalSale = this.saleService.getById(this.inputSaleId());
+        Optional<Sale> optionalSale = this.saleService.getById(this.inputId());
         optionalSale.ifPresentOrElse(
                 System.out::println,
                 () -> System.out.println(this.entityName + " not found")
@@ -96,10 +96,6 @@ public class SaleMenu extends Menu {
             inputItem(sale);
         }
         return sale;
-    }
-
-    private Long inputSaleId() {
-        return Long.valueOf(Ihm.readInput(this.entityName.toLowerCase(), "id"));
     }
 
     private void inputDate(Sale sale) {

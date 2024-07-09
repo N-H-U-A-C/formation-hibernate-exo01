@@ -6,7 +6,7 @@ import org.hibernate.SessionFactory;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class ItemRepository {
+public class ItemRepository {
 
     protected SessionFactory sessionFactory;
 

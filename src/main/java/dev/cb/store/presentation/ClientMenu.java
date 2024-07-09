@@ -67,10 +67,6 @@ public class ClientMenu extends Menu {
         this.clientService.save(this.inputNewClient());
     }
 
-    private Long inputId() {
-        return Long.valueOf(Ihm.readInput(this.entityName.toLowerCase(), "id"));
-    }
-
     private Client inputNewClient() {
         Client client = new Client();
         inputFirstName(client);

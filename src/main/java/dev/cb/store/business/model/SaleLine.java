@@ -17,7 +17,7 @@ public class SaleLine {
     private double price;
 
     // TODO change OneToOne to OneToMany
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "itemId")
     private Item item;
 

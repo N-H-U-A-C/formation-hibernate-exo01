@@ -19,6 +19,10 @@ public abstract class Menu {
         return actions;
     }
 
+    protected Long inputId() {
+        return Long.valueOf(Ihm.readInput(this.entityName.toLowerCase(), "id"));
+    }
+
     protected void changeActualMenu(int key) {
         Ihm.actualMenu = Ihm.menus.get(key);
     }

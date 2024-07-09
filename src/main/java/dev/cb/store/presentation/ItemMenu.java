@@ -9,34 +9,50 @@ import java.util.Optional;
 
 public class ItemMenu extends Menu {
 
-    private ItemService itemService;
+    protected ItemService itemService;
 
     public ItemMenu(ItemService itemService) {
         super();
         this.itemService = itemService;
+        initialize();
+    }
+
+    protected void initialize() {
         this.actions = new HashMap<>();
-        actions.put(1, this::create);
+        actions.put(1, this::inputItemType);
         actions.put(2, this::read);
         actions.put(3, this::readAll);
-//        actions.put(4, this::update);
-        actions.put(5, this::delete);
-        actions.put(6, () -> this.changeActualMenu(0));
+        actions.put(4, this::delete);
+        actions.put(5, () -> this.changeActualMenu(0));
         actions.put(0, () -> Ihm.hasQuit = true);
         this.entityName = "Item";
         this.menuText = """
                 \n=== Manage items ===
                                 
-                1. Add an item
+                1. Add or update an item
                 2. Display an item (by id)
                 3. Display all items
-                4. Update an item
-                5. Delete an item
-                6. Return to main menu
+                4. Delete an item
+                5. Return to main menu
                 0. Exit
                 """;
     }
 
-    private void delete() {
+    private void inputItemType() {
+        String itemType = Ihm.readInput(this.entityName.toLowerCase(), """
+                item type
+                1. Fashion item
+                2. Food item
+                3. Electronic item
+                """);
+        switch (itemType) {
+            case "2" -> this.changeActualMenu(5);
+            case "3" -> this.changeActualMenu(6);
+            default -> this.changeActualMenu(4);
+        }
+    }
+
+    protected void delete() {
         Optional<Item> optionalItem = itemService.getById(this.inputId());
         optionalItem.ifPresentOrElse(
                 item -> this.itemService.delete(item),
@@ -52,11 +68,11 @@ public class ItemMenu extends Menu {
 //        );
 //    }
 
-    private void readAll() {
+    protected void readAll() {
         this.itemService.getAll().forEach(System.out::println);
     }
 
-    private void read() {
+    protected void read() {
         Optional<Item> optionalItem = this.itemService.getById(this.inputId());
         optionalItem.ifPresentOrElse(
                 System.out::println,
@@ -64,27 +80,9 @@ public class ItemMenu extends Menu {
         );
     }
 
-    private void create() {
-        this.itemService.save(this.inputNewItem());
-    }
-
-    private Long inputId() {
-        return Long.valueOf(Ihm.readInput(this.entityName.toLowerCase(), "id"));
-    }
-
-    private Item inputNewItem() {
-        String itemType = Ihm.readInput(this.entityName.toLowerCase(), """
-                item type
-                1. Fashion item
-                2. Food item
-                3. Electronic item
-                """);
-        return switch (itemType) {
-            case "2" -> inputNewFoodItem();
-            case "3" -> inputNewElectronicItem();
-            default -> inputNewFashionItem();
-        };
-    }
+//    private void create() {
+//        this.itemService.save(this.inputNewItem());
+//    }
 
     private Item inputNewFashionItem() {
         FashionItem fashionItem = new FashionItem();
@@ -148,19 +146,19 @@ public class ItemMenu extends Menu {
         foodItem.setExpirationDate(LocalDate.parse(Ihm.readInput(this.entityName.toLowerCase(), "expiration date")));
     }
 
-    private void inputStockQuantity(Item foodItem) {
+    protected void inputStockQuantity(Item foodItem) {
         foodItem.setStockQuantity(Integer.valueOf(Ihm.readInput(this.entityName.toLowerCase(), "stock quantity")));
     }
 
-    private void inputPrice(Item foodItem) {
+    protected void inputPrice(Item foodItem) {
         foodItem.setPrice(Double.valueOf(Ihm.readInput(this.entityName.toLowerCase(), "price")));
     }
 
-    private void inputDescription(Item foodItem) {
+    protected void inputDescription(Item foodItem) {
         foodItem.setDescription(Ihm.readInput(this.entityName.toLowerCase(), "description"));
     }
 
-    private void inputLabel(Item foodItem) {
+    protected void inputLabel(Item foodItem) {
         foodItem.setLabel(Ihm.readInput(this.entityName.toLowerCase(), "label"));
     }
 

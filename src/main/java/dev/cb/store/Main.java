@@ -15,6 +15,9 @@ public class Main {
 
     public static void main(String[] args) {
 
+        // Item
+        ItemRepository itemRepository = new ItemRepository();
+        ItemService itemService = new ItemService(itemRepository);
         // FoodItem
         FoodItemRepository foodItemRepository = new FoodItemRepository();
         FoodItemService foodItemService = new FoodItemService(foodItemRepository);
@@ -38,6 +41,10 @@ public class Main {
         menus.put(1, clientMenu);
         Menu saleMenu = new SaleMenu(saleService);
         menus.put(2, saleMenu);
+        Menu itemMenu  = new ItemMenu(itemService);
+        menus.put(3, itemMenu);
+        Menu fashionItemMenu = new FashionItemMenu(fashionItemService);
+        menus.put(4, fashionItemMenu);
         // TODO create itemService instead of fooService
 
         Ihm.menus = menus;
@@ -64,7 +71,7 @@ public class Main {
 //        Optional<Status> optionalStatus = saleService.getStatusById(1L);
 //        optionalStatus.ifPresentOrElse(System.out::println, () -> System.out.println("Status not found"));
 
-        ItemService itemService = foodItemService;
+//        ItemService itemService = foodItemService;
 //        Item item1 = new ElectronicItem("label", "description", 11.5, 5, LocalDate.parse("2024-06-10"), 3600);
 //        Item item2 = new ElectronicItem(1L,"label", "test update", 11.5, 5, LocalDate.parse("2024-06-10"), 3600);
 //        Item item1 = new FashionItem("label", "description", 11.5, 5, LocalDate.parse("2024-06-10"), ClothingCategory.MAN, "5");

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -20,6 +21,9 @@ public abstract class Item implements Serializable {
     protected double price;
     protected int stockQuantity;
     protected LocalDate restockingDate;
+
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
+    protected List<SaleLine> saleLines;
 
     public Item() {
     }

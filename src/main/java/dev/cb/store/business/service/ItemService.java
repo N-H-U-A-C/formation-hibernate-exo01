@@ -6,7 +6,7 @@ import dev.cb.store.persistence.ItemRepository;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class ItemService {
+public class ItemService {
 
     private ItemRepository itemRepository;
 
